@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============================================================
+    EDIT: Change the title below to your name + role
+    This shows in the browser tab
+  ============================================================ -->
+    <title>Larry Vu - Data Analytics Portfolio</title>
+
+    <!-- Google Fonts — do not change unless you want a different font -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ============================================================
+      COLOURS — Edit these to change the colour theme of the site
+      --accent        : main green colour (buttons, dots, highlights)
+      --accent-light  : soft background version of the accent
+      --accent-dark   : darker version used on hover
+    ============================================================ */
+        :root {
+            --accent: #1D9E75;
+            --accent-light: #E1F5EE;
+            --accent-dark: #085041;
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+
+        /* --- Reset & Base --- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 20px;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 5rem;
+            border-bottom: 0.5px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 100;
+        }
+
+        .nav-name {
+            font-family: var(--font-display);
+            font-size: 25px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 15px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 4.5rem 5rem 3.5rem;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--accent-dark);
+            background: var(--accent-light);
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 46px;
+            line-height: 1.12;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.85;
+            margin-bottom: 2rem;
+            max-width: 630px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all 0.18s;
+            border: 0.5px solid #ccc;
+            background: transparent;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #f5f5f5;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            border-color: var(--accent-dark);
+        }
+
+        /* --- Tools strip --- */
+        .tools-strip {
+            display: flex;
+            align-items: center;
+            padding: 0 5rem;
+            border-top: 0.5px solid #e5e5e5;
+            border-bottom: 0.5px solid #e5e5e5;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+
+        .tools-label {
+            font-size: 15px;
+            color: #888;
+            padding: 1rem 1.5rem 1rem 0;
+            border-right: 0.5px solid #e5e5e5;
+            white-space: nowrap;
+            margin-right: 1.5rem;
+        }
+
+        .tools-list {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 1rem 0;
+        }
+
+        .tool-item {
+            font-size: 15px;
+            font-weight: 500;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tool-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 3rem 5rem;
+        }
+
+        .section-label {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::after {
+            content: '';
+            height: 0.5px;
+            background: #e5e5e5;
+            width: 60px;
+        }
+
+        /* --- Project Cards Grid --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 1px;
+            border: 0.5px solid #e5e5e5;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #e5e5e5;
+        }
+
+        .proj-card {
+            background: #fff;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .proj-card:hover {
+            background: #f9f9f9;
+        }
+
+        /* Empty/placeholder card style */
+        .proj-card.empty {
+            background: #fafafa;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            border: none;
+        }
+
+        .proj-card.empty:hover {
+            background: #f0f0f0;
+        }
+
+        .empty-plus {
+            font-size: 22px;
+            color: #bbb;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .empty-label {
+            font-size: 12px;
+            color: #aaa;
+            text-align: center;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .card-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        /* Icon background colours by tool type */
+        .icon-bi {
+            background: #FFF3E0;
+        }
+
+        .icon-sql {
+            background: #E3F2FD;
+        }
+
+        .icon-xl {
+            background: #E8F5E9;
+        }
+
+        .icon-py {
+            background: #F3E5F5;
+        }
+
+        .card-tag {
+            font-size: 13px;
+            font-weight: 500;
+            padding: 3px 9px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Tag colours by tool type */
+        .tag-bi {
+            background: #FFF3E0;
+            color: #BF360C;
+        }
+
+        .tag-sql {
+            background: #E3F2FD;
+            color: #0D47A1;
+        }
+
+        .tag-xl {
+            background: #E8F5E9;
+            color: #1B5E20;
+        }
+
+        .tag-py {
+            background: #F3E5F5;
+            color: #4A148C;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 10px;
+            border-top: 0.5px solid #efefef;
+            margin-top: auto;
+        }
+
+        .card-pills {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            font-size: 13px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            border: 0.5px solid #e0e0e0;
+            color: #777;
+        }
+
+        .card-link {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-link:hover {
+            color: var(--accent-dark);
+        }
+
+        /* --- Skills Section --- */
+        .skills-section {
+            background: #f9f9f9;
+            border-top: 0.5px solid #e5e5e5;
+            border-bottom: 0.5px solid #e5e5e5;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-card {
+            background: #fff;
+            border: 0.5px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .skill-name {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .skill-track {
+      height: 2px;
+      background: #efefef;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 6px;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .skill-level {
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* --- About Section --- */
+        .about-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .about-text h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1.25;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.85;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Education block */
+        .edu-block {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .edu-label {
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .edu-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 8px 0;
+            border-bottom: 0.5px solid #e5e5e5;
+        }
+
+        .edu-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .edu-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+
+        .edu-title {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .edu-sub {
+            font-size: 13px;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        /* --- Contact Card --- */
+        .contact-card {
+            background: #fff;
+            border: 0.5px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 1.75rem;
+        }
+
+        .contact-card h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 0.5px solid #f0f0f0;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .contact-row:last-of-type {
+            border-bottom: none;
+        }
+
+        .c-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 1.5rem 5rem;
+            border-top: 0.5px solid #e5e5e5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* --- Responsive (mobile) --- */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .about-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 1rem;
+            }
+
+            .tools-strip {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .tools-label {
+                border-right: none;
+                margin-right: 0;
+                padding-bottom: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    NAVIGATION BAR
+    EDIT: Replace "Alex Chen" with your full name
+  ============================================================ -->
+    <nav>
+        <div class="nav-name">Larry Vu</div>
+        <ul class="nav-links">
+            <li><a onclick="scrollTo('projects')">Projects</a></li>
+            <li><a onclick="scrollTo('skills')">Skills</a></li>
+            <li><a onclick="scrollTo('about')">About</a></li>
+            <li><a onclick="scrollTo('contact')">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- ============================================================
+    HERO SECTION — The first thing visitors see
+    EDIT:
+      - Badge text: e.g. "Graduate · Open to opportunities"
+      - Heading: Your personal headline
+      - Paragraph: A short 2–3 sentence summary about yourself
+  ============================================================ -->
+    <div class="hero">
+        <div class="hero-badge">
+            <div class="badge-dot"></div>
+            Data Analyst · Open to Opportunities <!-- EDIT: Change this badge text -->
+        </div>
+
+        <h1>
+            Passionate about<br>
+            data, <em>ready to</em><br> <!-- EDIT: Change this heading -->
+            make an impact.
+        </h1>
+
+        <!-- EDIT: Write 2-3 sentences about yourself here -->
+        <p>
+           IT graduate with a strong interest in Data Analytics and Business Intelligence, currently developing practical skills to turn raw data into meaningful insights to support businesses in making better, data-driven decisions and improving operational efficiency. 
+        </p>
+
+        <div class="hero-cta">
+            <a class="btn btn-primary" onclick="scrollTo('projects')">See my work →</a>
+            <!-- EDIT: Replace the href below with a link to your CV file (see instructions below) -->
+            <a class="btn" href="files/Alex_Chen_CV.pdf" download>Download CV</a>
+        </div>
+    </div>
+
+
+    <!-- ============================================================
+    TOOLS STRIP — Shows what tools you know
+    EDIT: Add, remove, or rename tools to match your own skills
+  ============================================================ -->
+    <div class="tools-strip">
+        <span class="tools-label">Tools I work with</span>
+        <div class="tools-list">
+            <span class="tool-item"><span class="tool-dot"></span>Power BI</span> <!-- EDIT -->
+            <span class="tool-item"><span class="tool-dot"></span>SQL</span>
+            <span class="tool-item"><span class="tool-dot"></span>Excel</span>
+            <!-- <span class="tool-item"><span class="tool-dot"></span>Python</span> -->
+            <span class="tool-item"><span class="tool-dot"></span>DAX</span>
+            <span class="tool-item"><span class="tool-dot"></span>Power Query</span>
+        </div>
+    </div>
+
+
+    <!-- ============================================================
+    PROJECTS SECTION
+    HOW TO ADD A PROJECT:
+      1. Copy one entire <div class="proj-card">...</div> block below
+      2. Paste it inside the .projects-grid div
+      3. Fill in the title, description, pills, and link
+
+    HOW TO LINK YOUR FILES:
+      - Create a folder called "files/" next to this HTML file
+      - Put your Power BI, SQL, Excel, Python files inside it
+      - Then set the href on the <a class="card-link"> to point to your file
+        e.g.  href="files/sales_dashboard.pbix"
+              href="files/churn_analysis.sql"
+              href="files/financial_model.xlsx"
+              href="files/retail_analysis.ipynb"
+
+    POWER BI LIVE EMBED (interactive — recommended):
+      1. Open your report in Power BI Service (app.powerbi.com)
+      2. Click File → Embed report → Publish to web (public)
+      3. Copy the iframe src URL
+      4. Replace YOUR_EMBED_URL below in the modal section at the bottom
+
+    CARD ICON CLASSES (set on .card-icon):
+      icon-bi   = Power BI (orange background)
+      icon-sql  = SQL (blue background)
+      icon-xl   = Excel (green background)
+      icon-py   = Python (purple background)
+
+    TAG CLASSES (set on .card-tag):
+      tag-bi  tag-sql  tag-xl  tag-py
+  ============================================================ -->
+    <section id="projects">
+        <div class="section-label">Projects</div>
+
+        <div class="projects-grid">
+
+            <!-- ── PROJECT CARD 1: Power BI ── -->
+            <div class="proj-card" onclick="openModal('modal-1')">
+                <div class="card-top">
+                    <div class="card-icon icon-bi">📊</div>
+                    <span class="card-tag tag-bi">Power BI</span> <!-- EDIT: Change tag type -->
+                </div>
+                <!-- EDIT: Project title -->
+                <div class="card-title">Chocolate Sales Dashboard</div>
+                <!-- EDIT: 1–2 sentence description of what you built and why -->
+                <div class="card-desc">
+                    Built interactive dashboards to uncover insights on sales performance, product preferences, and customer behaviour to support strategic decision-making.
+                </div>
+                <div class="card-footer">
+                    <!-- EDIT: Add relevant skills as pills -->
+                    <div class="card-pills">
+                        <span class="pill">DAX</span>
+                        <span class="pill">Power Query</span>
+                        <!-- <span class="pill">RLS</span> -->
+                    </div>
+                    <!--<span style="font-size:13px;color:#1D9E75;">View ↗</span>-->
+                </div>
+            </div>
+
+            <!-- ── PROJECT CARD 2: SQL ── -->
+            <div class="proj-card" onclick="openModal('modal-2')">
+                <div class="card-top">
+                    <div class="card-icon icon-sql">🗄️</div>
+                    <span class="card-tag tag-sql">SQL</span>
+                </div>
+                <div class="card-title">World's Forestation Analysis</div>
+                <div class="card-desc">
+                  This project analyses World Bank data (1990-2016) using SQL to identify deforestation trends, highlight areas of concern, and uncover successful conservation practices.
+                </div>
+                <div class="card-footer">
+                    <div class="card-pills">
+                        <span class="pill">SSMS</span>
+                        <span class="pill">CTEs</span>
+                        <span class="pill">Window Fn</span>
+                    </div>
+                    <!--<span style="font-size:13px;color:#1D9E75;">View ↗</span>-->
+                </div>
+            </div>
+
+            <!-- ── PROJECT CARD 3: Excel ── -->
+            <!--<div class="proj-card" onclick="openModal('modal-3')">-->
+            <!--    <div class="card-top">-->
+            <!--        <div class="card-icon icon-xl">📋</div>-->
+            <!--        <span class="card-tag tag-xl">Excel</span>-->
+            <!--    </div>-->
+            <!--    <div class="card-title">Financial Model & Forecast</div>-->
+            <!--    <div class="card-desc">-->
+            <!--        Designed a 3-year revenue forecast with scenario analysis and dynamic-->
+            <!--        assumptions for a university capstone project.-->
+            <!--    </div>-->
+            <!--    <div class="card-footer">-->
+            <!--        <div class="card-pills">-->
+            <!--            <span class="pill">Pivot Tables</span>-->
+            <!--            <span class="pill">Forecasting</span>-->
+            <!--            <span class="pill">VBA</span>-->
+            <!--        </div>-->
+            <!--        <span style="font-size:13px;color:#1D9E75;">View ↗</span>-->
+            <!--    </div>-->
+            <!--</div>-->
+
+            <!-- ── PROJECT CARD 4: Python ── -->
+            <!--<div class="proj-card" onclick="openModal('modal-4')">-->
+            <!--    <div class="card-top">-->
+            <!--        <div class="card-icon icon-py">🐍</div>-->
+            <!--        <span class="card-tag tag-py">Python</span>-->
+            <!--    </div>-->
+            <!--    <div class="card-title">Retail Sales Analysis</div>-->
+            <!--    <div class="card-desc">-->
+            <!--        Cleaned and visualised a retail sales dataset using Pandas and-->
+            <!--        Matplotlib as part of a data analytics university unit.-->
+            <!--    </div>-->
+            <!--    <div class="card-footer">-->
+            <!--        <div class="card-pills">-->
+            <!--            <span class="pill">Pandas</span>-->
+            <!--            <span class="pill">Matplotlib</span>-->
+            <!--            <span class="pill">Jupyter</span>-->
+            <!--        </div>-->
+            <!--        <span style="font-size:13px;color:#1D9E75;">View ↗</span>-->
+            <!--    </div>-->
+            <!--</div>-->
+
+            <!-- ── PLACEHOLDER CARD — shows "coming soon" slot ── -->
+            <!-- EDIT: Delete this card once you have a real project to replace it -->
+            <div class="proj-card empty">
+                <div class="empty-plus">+</div>
+                <div class="empty-label">More projects coming soon</div>
+            </div>
+
+        </div><!-- end .projects-grid -->
+    </section>
+
+
+    <!-- ============================================================
+    SKILLS SECTION
+    EDIT:
+      - skill-name: the tool/skill name
+      - skill-fill width: percentage of the bar (e.g. 75% = intermediate)
+        Use honest levels:
+          ~60% = learning / beginner
+          ~75% = comfortable / intermediate
+          ~90% = confident / advanced
+      - skill-level text: short description of what you can do
+  ============================================================ -->
+    <section id="skills" class="skills-section">
+        <div class="section-label">Skills</div>
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <div class="skill-name">Power BI</div> <!-- EDIT -->
+                <div class="skill-track">
+                    <div class="skill-fill" style="width: 75%"></div> <!-- EDIT width -->
+                </div>
+                <div class="skill-level">Interactive Dashboards · DAX · Power Query</div> <!-- EDIT -->
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-name">SQL</div>
+                <div class="skill-track">
+                    <div class="skill-fill" style="width: 75%"></div>
+                </div>
+                <div class="skill-level">SSMS · CTEs · Joins · Window Functions</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-name">Excel</div>
+                <div class="skill-track">
+                    <div class="skill-fill" style="width: 70%"></div>
+                </div>
+                <div class="skill-level">Pivot Tables · VLOOKUP · Charts</div>
+            </div>
+
+            <!--<div class="skill-card">-->
+            <!--    <div class="skill-name">Python</div>-->
+            <!--    <div class="skill-track">-->
+            <!--        <div class="skill-fill" style="width: 60%"></div>-->
+            <!--    </div>-->
+            <!--    <div class="skill-level">Pandas · Matplotlib · Jupyter</div>-->
+            <!--</div>-->
+
+            <!-- EDIT: Add more skill cards by copying the block above -->
+
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+    ABOUT + CONTACT SECTION
+    EDIT:
+      - Heading and paragraphs: describe your background and approach
+      - Education rows: add your real degree, university, graduation year
+      - Add certifications if you have any (e.g. PL-300, Google Data Analytics)
+  ============================================================ -->
+    <section id="about">
+        <div class="about-wrap">
+
+            <div class="about-text">
+                <div class="section-label">About me</div>
+
+                <!-- EDIT: Your heading -->
+                <h2>Fresh graduate,<br>genuine curiosity.</h2>
+
+                <!-- EDIT: 2–3 paragraphs about yourself -->
+                <p>
+                   I am an IT graduate passionate about Data Analytics - Business Intelligence, with hands-on skills in SQL, Excel, Python, and Power BI for data analysis, cleaning, and visualisation.
+                </p>
+                <p>
+                    I focus on turning data into meaningful insights to support business decision-making while continuously improving my analytical and technical skills through practical projects.
+                </p>
+
+                <div class="edu-block">
+                    <div class="edu-label">Education &amp; Certifications</div>
+
+                    <!-- EDIT: Replace with your real degree details -->
+                    <div class="edu-row">
+                        <div class="edu-dot"></div>
+                        <div>
+                            <div class="edu-title">Master of Information Technology</div>
+                            <!-- EDIT: Your university name and graduation year -->
+                            <div class="edu-sub">Data Analytics · Kaplan Business School · 2025</div>
+                        </div>
+                    </div>
+
+                    <!-- EDIT: Add/remove certification rows as needed -->
+                    <div class="edu-row">
+                        <div class="edu-dot"></div>
+                        <div>
+                            <div class="edu-title">Bachelor of Design</div>
+                            <div class="edu-sub">Visual Communication · JMC Academy · 2023</div>
+                        </div>
+                    </div>
+
+                    <!-- TEMPLATE: Copy this block to add another cert or degree
+          <div class="edu-row">
+            <div class="edu-dot"></div>
+            <div>
+              <div class="edu-title">Your Certification Name</div>
+              <div class="edu-sub">Issuer · Year</div>
+            </div>
+          </div>
+          -->
+
+                </div>
+            </div><!-- end about-text -->
+
+
+            <!-- ============================================================
+        CONTACT CARD
+        EDIT: Replace all contact details with your real ones
+        - Email, LinkedIn URL, GitHub URL, Location
+        - The CV button links to your CV file — put it in a "files/" folder
+      ============================================================ -->
+            <div id="contact" class="contact-card">
+                <h3>Let's connect</h3>
+
+                <div class="contact-row">
+                    <div class="c-icon">✉</div>
+                    <!-- EDIT: Your email address -->
+                    <span>vulamtruong9501@gmail.com</span>
+                </div>
+
+                <div class="contact-row">
+                    <div class="c-icon">💼</div>
+                    <!-- EDIT: Your LinkedIn URL -->
+                    <a href="https://www.linkedin.com/in/larry-vu9/" target="_blank" style="color:#555;text-decoration:none;">
+                        linkedin.com/in/larry-vu9/
+                    </a>
+                </div>
+
+                <div class="contact-row">
+                    <div class="c-icon">🐙</div>
+          <!-- EDIT: Your GitHub URL -->
+                    <a href="https://github.com/lamtruongvu" target="_blank" style="color:#555;text-decoration:none;">
+                        github.com/lamtruongvu
+                    </a>
+                </div>
+
+                <div class="contact-row">
+                    <div class="c-icon">📍</div>
+                    <!-- EDIT: Your city -->
+                    <span>Sydney, Australia</span>
+                </div>
+
+                <!-- EDIT: Update href to point to your CV file in the files/ folder -->
+                <a class="btn btn-primary" href="files/Alex_Chen_CV.pdf" download style="width:100%;margin-top:1.25rem;justify-content:center;display:flex;">
+                    Download CV
+                </a>
+
+            </div><!-- end contact-card -->
+
+        </div><!-- end about-wrap -->
+    </section>
+
+
+    <!-- ============================================================
+    FOOTER
+    EDIT: Your name, role, and year
+  ============================================================ -->
+    <footer>
+        <span>Larry Vu · IT Graduate · Data Analytics</span> <!-- EDIT -->
+        <span>Sydney · 2025</span> <!-- EDIT -->
+    </footer>
+
+
+    <!-- ============================================================
+    PROJECT MODALS
+    Each modal pops up when a project card is clicked.
+    There are 4 modals below — one per project card.
+
+    HOW TO USE EACH MODAL:
+      - modal-title      : Project name
+      - modal-meta       : Tool type label
+      - modal-overview   : 2-3 sentence summary of the project
+      - modal-problem    : What problem were you solving?
+      - modal-approach   : What did you do to solve it?
+      - modal-outcome    : What was the result?
+      - embed area       : Paste a Power BI embed URL or screenshot image
+      - Download link    : Points to your file in the files/ folder
+
+    ============================================================ -->
+
+    <!-- MODAL STYLES -->
+    <style>
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background: #fff;
+            border-radius: 14px;
+            width: 100%;
+            max-width: 640px;
+            max-height: 88vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 20px;
+            cursor: pointer;
+            color: #aaa;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .modal-tag {
+            font-size: 13px;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-title {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .modal-embed {
+            width: 100%;
+            border-radius: 8px;
+            border: 0.5px solid #e5e5e5;
+            overflow: hidden;
+            margin: 1.25rem 0;
+            background: #f5f5f5;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .modal-section {
+            margin-bottom: 1rem;
+        }
+
+        .modal-section h4 {
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 6px;
+        }
+
+        .modal-section p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.75;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+    </style>
+
+
+    <!-- ── MODAL 1: Power BI — Sales Dashboard ── -->
+    <div id="modal-1" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-1')">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('modal-1')">✕</button>
+
+            <span class="modal-tag tag-bi">Power BI</span>
+
+            <!-- EDIT: Project title -->
+            <div class="modal-title">Chocolate Sales Dashboard</div>
+
+            <!-- ============================================================
+        POWER BI EMBED OPTIONS — Choose ONE of the following:
+
+        OPTION A — Live interactive embed (recommended if data is not sensitive):
+          1. Publish your report to Power BI Service (app.powerbi.com)
+          2. Go to File → Embed report → Publish to web (public)
+          3. Copy the embed URL (looks like: https://app.powerbi.com/view?r=...)
+          4. Replace YOUR_POWERBI_EMBED_URL below with that URL
+          5. Delete the placeholder div and uncomment the iframe
+
+        OPTION B — Screenshot image:
+          1. Take a screenshot of your dashboard
+          2. Save it as an image (e.g. sales_dashboard.png) in your files/ folder
+          3. Delete the placeholder div and uncomment the img tag below
+
+        OPTION C — No embed (just description + download link):
+          Delete the entire modal-embed div
+      ============================================================ -->
+
+            <div class="modal-embed">
+                <!-- OPTION A: Live Power BI embed — uncomment and add your URL
+        <iframe
+          src="YOUR_POWERBI_EMBED_URL"
+          width="100%"
+          height="350"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+        -->
+
+                <!-- OPTION B: Screenshot image — uncomment and update path -->
+        <img src="files/PBI Screenshot.pdf" alt="Sales Dashboard screenshot"
+             style="width:100%;border-radius:8px;" />
+        
+
+                <!-- OPTION C placeholder — delete this once you add A or B above -->
+                <!--<div style="padding:2rem;">-->
+                <!--    📊 Dashboard preview<br>-->
+                <!--    <span style="font-size:11px;">Add a Power BI embed or screenshot here</span>-->
+                <!--</div>-->
+            </div>
+
+            <!-- EDIT: Fill in your project details below -->
+            <div class="modal-section">
+                <h4>Overview</h4>
+                <!-- EDIT -->
+                <p>A Power BI analysis of synthetic chocolate retail transaction data across 6 countries and 2 years (2023–2024), uncovering trends in sales performance, product preferences, and customer behaviour.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>Problem</h4>
+                <!-- EDIT: What problem were you solving? -->
+                <p>Chocolate retailers operating across multiple markets lack a clear, consolidated view of what's driving revenue, which products and channels perform best, and who their customers actually are. Without this, strategic decisions around marketing, product mix, and geographic expansion are made with limited evidence.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>Approach</h4>
+                <!-- EDIT: What did you build / how did you approach it? -->
+                <p>I explored a star-schema dataset from Kaggle spanning ~990K orders, then brainstormed questions across three dimensions (sales, product, and customer) before building three interconnected Power BI dashboards to surface the answers. Key focus areas included geographic performance gaps, channel and category preferences, and customer segmentation by age, gender, and loyalty.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>Outcome</h4>
+                <!-- EDIT: What was the result? Be specific if you can -->
+                <p>The dashboards revealed a highly stable but plateauing business with a consistent 40% profit margin, airport retail as the dominant sales channel (30%), and Praline as the top category - while identifying France as a quietly accelerating market and flagging the 80g pack and Milk chocolate category as potential candidates for rationalisation.</p>
+            </div>
+
+            <div class="modal-actions">
+                <!-- EDIT: Update href to your .pbix file in the files/ folder -->
+                <a class="btn btn-primary" href="files/Chocolate.pbix" download>Download .pbix file</a>
+                <!-- EDIT: Or link to your GitHub repo -->
+                <a class="btn" href="https://github.com/lamtruongvu/PBIChocolateSales" target="_blank">View on GitHub</a>
+            </div>
+
+        </div>
+    </div><!-- end modal-1 -->
+
+
+    <!-- ── MODAL 2: SQL — World's Forestation Analysis ── -->
+    <div id="modal-2" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-2')">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('modal-2')">✕</button>
+
+            <span class="modal-tag tag-sql">SQL</span>
+            <div class="modal-title">World's Forestation Analysis</div>
+
+            <!-- ============================================================
+        SQL PROJECT FILE OPTIONS — Choose ONE:
+
+        OPTION A — Screenshot of query results / output:
+          <img src="files/churn_screenshot.png" style="width:100%;border-radius:8px;" />
+
+        OPTION B — Embed a GitHub Gist (paste your SQL there first):
+          <script src="https://gist.github.com/YOUR_USERNAME/GIST_ID.js"></script>
+
+        OPTION C — No embed, just link to GitHub repo below
+      ============================================================ -->
+            <div class="modal-embed">
+                <div style="padding:2rem;">
+                  <img src="files/SQL Screenshot.png" style="width:100%;border-radius:8px;" />
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>Overview</h4>
+                <p>A SQL-based investigation into global deforestation trends using World Bank data, analysing forest area changes across countries and regions between 1990 and 2016 to support ForestQuery's conservation mission.</p> <!-- EDIT -->
+            </div>
+
+            <div class="modal-section">
+                <h4>Problem</h4>
+                <p>Deforestation is a global crisis, but without a clear, data-driven picture of where forest loss is most severe - and where it's being reversed - conservation efforts and international funding can't be directed where they're needed most.</p> <!-- EDIT -->
+            </div>
+
+            <div class="modal-section">
+                <h4>Approach</h4>
+                <p>I queried three joined tables (forest area, land area, and regional classifications) using CTEs, window functions, and CASE-based quartile segmentation to answer questions at the global, regional, and country level - covering absolute loss, percentage change, forestation rankings, and income group breakdowns. I also refactored several queries for efficiency by eliminating redundant CTEs.</p> <!-- EDIT -->
+            </div>
+
+            <div class="modal-section">
+                <h4>Outcome</h4>
+                <p>The analysis found that the world lost 1.32M sq km of forest - roughly the size of Peru - between 1990 and 2016, with Brazil and Indonesia alone accounting for nearly two-thirds of global loss, while China bucked the trend with a gain of 527,229 sq km, making it the standout reforestation success story of the period.</p> <!-- EDIT -->
+            </div>
+
+            <div class="modal-actions">
+                <!-- EDIT: Link to your .sql file or GitHub repo -->
+                <a class="btn btn-primary" href="files/Forestation.sql" download>Download .sql file</a>
+                <a class="btn" href="https://github.com/lamtruongvu/SQLDeforestation" target="_blank">View on GitHub</a>
+            </div>
+
+        </div>
+    </div><!-- end modal-2 -->
+
+
+    <!-- ── MODAL 3: Excel — Financial Model ── -->
+    <div id="modal-3" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-3')">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('modal-3')">✕</button>
+
+            <span class="modal-tag tag-xl">Excel</span>
+            <div class="modal-title">Financial Model &amp; Forecast</div>
+
+            <!-- ============================================================
+        EXCEL FILE OPTIONS — Choose ONE:
+
+        OPTION A — Screenshot of the spreadsheet:
+          <img src="files/financial_model.png" style="width:100%;border-radius:8px;" />
+
+        OPTION B — OneDrive live embed:
+          1. Upload your Excel file to OneDrive
+          2. Click Share → Embed → Generate HTML
+          3. Copy the iframe and paste it below (remove the placeholder div)
+
+        OPTION C — Just the download link below
+      ============================================================ -->
+            <div class="modal-embed">
+                <div style="padding:2rem;">
+                    📋 Spreadsheet preview<br>
+                    <span style="font-size:11px;">Add a screenshot or OneDrive embed here</span>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>Overview</h4>
+                <p>A 3-year revenue forecast model with scenario analysis (base, optimistic, pessimistic) built as part of a university capstone project.</p> <!-- EDIT -->
+            </div>
+
+            <div class="modal-section">
+                <h4>Problem</h4>
+                <p>The project required demonstrating how a business could model future revenue under different market conditions using only historical data.</p> <!-- EDIT -->
+            </div>
+
+            <div class="modal-section">
+                <h4>Approach</h4>
+                <p>Built a dynamic model in Excel using Pivot Tables, named ranges, and chart automation. Scenario inputs controlled all outputs from a single assumptions page.</p> <!-- EDIT -->
+            </div>
+
+            <div class="modal-section">
+                <h4>Outcome</h4>
+                <p>Produced a clean, easy-to-use financial model that could be updated by non-technical users just by changing the assumptions.</p> <!-- EDIT -->
+            </div>
+
+            <div class="modal-actions">
+                <!-- EDIT: Link to your .xlsx file -->
+                <a class="btn btn-primary" href="files/financial_model.xlsx" download>Download .xlsx file</a>
+            </div>
+
+        </div>
+    </div><!-- end modal-3 -->
+
+
+    <!-- ── MODAL 4: Python — Retail Analysis ── -->
+    <div id="modal-4" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-4')">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('modal-4')">✕</button>
+
+            <span class="modal-tag tag-py">Python</span>
+            <div class="modal-title">Retail Sales Analysis</div>
+
+            <!-- ============================================================
+        PYTHON / NOTEBOOK OPTIONS — Choose ONE:
+
+        OPTION A — Screenshot of charts from your notebook:
+          <img src="files/retail_analysis.png" style="width:100%;border-radius:8px;" />
+
+        OPTION B — Link to Kaggle notebook or NBViewer (in the actions below)
+          Just update the href on the "View notebook" button below
+
+        OPTION C — GitHub link (notebook will render automatically on GitHub)
+      ============================================================ -->
+            <div class="modal-embed">
+                <div style="padding:2rem;">
+                    🐍 Notebook preview<br>
+                    <span style="font-size:11px;">Add a chart screenshot or link to Kaggle / GitHub</span>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>Overview</h4>
+                <p>Exploratory analysis of a retail sales dataset to uncover sales trends, top-performing products, and seasonal patterns.</p> <!-- EDIT -->
+            </div>
+
+            <div class="modal-section">
+                <h4>Problem</h4>
+                <p>Completed as part of a data analytics unit — the goal was to practise end-to-end data analysis: cleaning, transforming, visualising, and interpreting results.</p> <!-- EDIT -->
+            </div>
+
+            <div class="modal-section">
+                <h4>Approach</h4>
+                <p>Used Pandas to clean and aggregate the dataset, then Matplotlib and Seaborn to produce visualisations covering monthly revenue, category breakdowns, and top-10 products.</p> <!-- EDIT -->
+            </div>
+
+            <div class="modal-section">
+                <h4>Outcome</h4>
+                <p>Produced a reproducible Jupyter notebook that clearly communicated findings with annotated charts and written commentary.</p> <!-- EDIT -->
+            </div>
+
+            <div class="modal-actions">
+                <!-- EDIT: Update these links to your actual files or hosted notebook -->
+                <a class="btn btn-primary" href="files/retail_analysis.ipynb" download>Download notebook</a>
+                <!-- EDIT: Replace # with a link to your Kaggle or GitHub notebook -->
+                <a class="btn" href="#" target="_blank">View on GitHub</a>
+            </div>
+
+        </div>
+    </div><!-- end modal-4 -->
+
+
+    <!-- ============================================================
+    JAVASCRIPT — Handles scrolling and modal open/close
+    You do NOT need to edit anything below this line
+  ============================================================ -->
+    <script>
+        // Smooth scroll to a section by ID
+        function scrollTo(id) {
+            document.getElementById(id).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Open a modal by ID
+        function openModal(id) {
+            document.getElementById(id).classList.add('open');
+            document.body.style.overflow = 'hidden'; // prevent background scroll
+        }
+
+        // Close a modal by ID
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking the dark overlay (outside the box)
+        function closeModalOnOverlay(event, id) {
+            if (event.target === document.getElementById(id)) {
+                closeModal(id);
+            }
+        }
+
+        // Close any open modal when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.open').forEach(function(m) {
+                    m.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
+
+<!--
+================================================================
+  HOW TO PUBLISH THIS PORTFOLIO ON GITHUB PAGES (free hosting)
+================================================================
+
+STEP 1 — Set up your folder structure
+  Create a folder on your computer like this:
+
+  my-portfolio/
+  ├── index.html              ← this file (rename it to index.html)
+  └── files/
+      ├── Alex_Chen_CV.pdf    ← your CV
+      ├── sales_dashboard.pbix
+      ├── churn_analysis.sql
+      ├── financial_model.xlsx
+      └── retail_analysis.ipynb
+
+STEP 2 — Create a GitHub account
+  Go to https://github.com and sign up (free)
+
+STEP 3 — Create a new repository
+  - Click the "+" icon → New repository
+  - Name it: your-username.github.io  (e.g. alexchen.github.io)
+  - Set it to Public
+  - Click "Create repository"
+
+STEP 4 — Upload your files
+  - Click "uploading an existing file"
+  - Drag your index.html AND your entire files/ folder into the upload area
+  - Click "Commit changes"
+
+STEP 5 — Enable GitHub Pages
+  - Go to your repo → Settings → Pages
+  - Under "Branch" select "main" → Save
+  - Wait 1-2 minutes
+
+STEP 6 — Your site is live!
+  Visit: https://your-username.github.io
+
+================================================================
+  NOTES ON POWER BI FILES (.pbix)
+================================================================
+- Visitors can download your .pbix file but cannot open it
+  in a browser — they need Power BI Desktop installed
+- For interactive access, use "Publish to web" in Power BI Service
+  and paste the embed URL into the modal iframe (Option A above)
+- Never upload .pbix files with sensitive or real business data
+
+================================================================
+  NOTES ON SQL FILES (.sql)
+================================================================
+- .sql files are plain text — anyone can open and read them
+- Upload to GitHub for the best experience (renders with syntax highlight)
+- Or paste queries into https://dbfiddle.uk for live shareable demos
+
+================================================================
+  NOTES ON EXCEL FILES (.xlsx)
+================================================================
+- Visitors can download your .xlsx file and open it in Excel
+- For browser preview, upload to OneDrive and use the embed option
+  (see Modal 3 instructions above)
+
+================================================================
+-->
