@@ -644,7 +644,7 @@
         <div class="hero-cta">
             <a class="btn btn-primary" onclick="scrollTo('projects')">See my work →</a>
             <!-- EDIT: Replace the href below with a link to your CV file (see instructions below) -->
-            <a class="btn" href="files/Alex_Chen_CV.pdf" download>Download CV</a>
+            <!--<a class="btn" href="files/Alex_Chen_CV.pdf" download>Download CV</a>-->
         </div>
     </div>
 
@@ -656,9 +656,9 @@
     <div class="tools-strip">
         <span class="tools-label">Tools I work with</span>
         <div class="tools-list">
-            <span class="tool-item"><span class="tool-dot"></span>Power BI</span> <!-- EDIT -->
-            <span class="tool-item"><span class="tool-dot"></span>SQL</span>
+            <span class="tool-item"><span class="tool-dot"></span>SQL</span> <!-- EDIT -->
             <span class="tool-item"><span class="tool-dot"></span>Excel</span>
+            <span class="tool-item"><span class="tool-dot"></span>Power BI</span>
             <!-- <span class="tool-item"><span class="tool-dot"></span>Python</span> -->
             <span class="tool-item"><span class="tool-dot"></span>DAX</span>
             <span class="tool-item"><span class="tool-dot"></span>Power Query</span>
@@ -745,6 +745,27 @@
                 </div>
             </div>
 
+            <!-- ── PROJECT CARD 3: SQL ── -->
+            <div class="proj-card" onclick="openModal('modal-3')">
+                <div class="card-top">
+                    <div class="card-icon icon-sql">️🗂️</div>
+                    <span class="card-tag tag-sql">SQL</span>
+                </div>
+                <div class="card-title">HR ETL & Analysis</div>
+                <div class="card-desc">
+                  An end-to-end SQL Server ETL pipeline built on a 2,000,000 multinational HR dataset. The pipeline covers data profiling, null imputation, standardisation, outlier detection, and quarantine logic for flagged records - before promoting clean data into a normalised star schema ready for analysis.
+                </div>
+                <div class="card-footer">
+                    <div class="card-pills">
+                        <span class="pill">SSMS</span>
+                        <span class="pill">ETL</span>
+                        <span class="pill">CTEs</span>
+                        <span class="pill">Window Fn</span>
+                    </div>
+                    <!--<span style="font-size:13px;color:#1D9E75;">View ↗</span>-->
+                </div>
+            </div>
+            
             <!-- ── PROJECT CARD 3: Excel ── -->
             <!--<div class="proj-card" onclick="openModal('modal-3')">-->
             <!--    <div class="card-top">-->
@@ -1232,119 +1253,172 @@
         </div>
     </div><!-- end modal-2 -->
 
-
-    <!-- ── MODAL 3: Excel — Financial Model ── -->
+    <!-- ── MODAL 3: SQL — HR ETL & Analysis ── -->
     <div id="modal-3" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-3')">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal('modal-3')">✕</button>
 
-            <span class="modal-tag tag-xl">Excel</span>
-            <div class="modal-title">Financial Model &amp; Forecast</div>
+            <span class="modal-tag tag-sql">SQL</span>
+            <div class="modal-title">HR ETL & Analysis</div>
 
             <!-- ============================================================
-        EXCEL FILE OPTIONS — Choose ONE:
+        SQL PROJECT FILE OPTIONS — Choose ONE:
 
-        OPTION A — Screenshot of the spreadsheet:
-          <img src="files/financial_model.png" style="width:100%;border-radius:8px;" />
+        OPTION A — Screenshot of query results / output:
+          <img src="files/churn_screenshot.png" style="width:100%;border-radius:8px;" />
 
-        OPTION B — OneDrive live embed:
-          1. Upload your Excel file to OneDrive
-          2. Click Share → Embed → Generate HTML
-          3. Copy the iframe and paste it below (remove the placeholder div)
+        OPTION B — Embed a GitHub Gist (paste your SQL there first):
+          <script src="https://gist.github.com/YOUR_USERNAME/GIST_ID.js"></script>
 
-        OPTION C — Just the download link below
+        OPTION C — No embed, just link to GitHub repo below
       ============================================================ -->
             <div class="modal-embed">
-                <div style="padding:2rem;">
-                    📋 Spreadsheet preview<br>
-                    <span style="font-size:11px;">Add a screenshot or OneDrive embed here</span>
+                <div
+                    <img src="files/SQLHR.png" style="width:100%;border-radius:8px;" />               
                 </div>
             </div>
 
             <div class="modal-section">
                 <h4>Overview</h4>
-                <p>A 3-year revenue forecast model with scenario analysis (base, optimistic, pessimistic) built as part of a university capstone project.</p> <!-- EDIT -->
+                <p>A end-to-end SQL Server ETL pipeline built on a synthetic 2-million-record multinational HR dataset spanning 5 departments and 7 European countries. The project covers the full data lifecycle - from raw, dirty data through to a clean star schema and a formal workforce analysis report. It was designed as a practical demonstration of real-world data engineering and analytical workflows.</p> <!-- EDIT -->
             </div>
 
             <div class="modal-section">
                 <h4>Problem</h4>
-                <p>The project required demonstrating how a business could model future revenue under different market conditions using only historical data.</p> <!-- EDIT -->
+                <p>The raw dataset contained a range of quality issues typical of production HR systems: duplicate employee IDs, honourifics and suffixes embedded in name fields, future hire dates, impossible age/experience combinations, salary outliers, and job title/level mismatches. Without systematic profiling and cleaning, none of the downstream analysis could be trusted. 6,666 records were ultimately unresolvable and quarantined from the clean dataset.</p> <!-- EDIT -->
             </div>
 
             <div class="modal-section">
                 <h4>Approach</h4>
-                <p>Built a dynamic model in Excel using Pivot Tables, named ranges, and chart automation. Scenario inputs controlled all outputs from a single assumptions page.</p> <!-- EDIT -->
+                <p>The T-SQL pipeline covered data profiling, null imputation, name standardisation, outlier detection via z-scoring, and a quarantine schema for flagged records - before promoting ~1.99M validated records into a normalised star schema (one fact table, three dimension tables). Analysis queries then examined workforce composition, salary structure, attrition patterns, performance ratings, and hiring trends across the full dataset.</p> <!-- EDIT -->
             </div>
 
             <div class="modal-section">
                 <h4>Outcome</h4>
-                <p>Produced a clean, easy-to-use financial model that could be updated by non-technical users just by changing the assumptions.</p> <!-- EDIT -->
+                <p>The analysis surfaced three high-priority structural risks: early-tenure attrition running at 13.3% - more than double the rate of long-tenured staff - a $260 salary spread across all performance ratings rendering merit pay effectively non-existent, and cohort retention declining from a 93-94% historical baseline to 86-89% for post-2020 hires. HR simultaneously recorded the lowest average salary ($76,781) and the highest attrition (11.9%) of any department, pointing to a self-reinforcing retention risk that the data alone cannot resolve but clearly flags for leadership attention.</p> <!-- EDIT -->
             </div>
 
             <div class="modal-actions">
-                <!-- EDIT: Link to your .xlsx file -->
-                <a class="btn btn-primary" href="files/financial_model.xlsx" download>Download .xlsx file</a>
+                <!-- EDIT: Link to your .sql file or GitHub repo -->
+                <a class="btn btn-primary" href="files/ETLQuery.sql" download>Download .sql file</a>
+                <a class="btn" href="https://github.com/lamtruongvu/SQL_HR" target="_blank">View on GitHub</a>
             </div>
 
         </div>
-    </div><!-- end modal-3 -->
+    </div><!-- end modal-2 -->
+    
+    <!-- ── MODAL 4: Excel — Financial Model ── -->
+    <!--<div id="modal-4" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-4')">-->
+    <!--    <div class="modal-box">-->
+    <!--        <button class="modal-close" onclick="closeModal('modal-4')">✕</button>-->
+
+    <!--        <span class="modal-tag tag-xl">Excel</span>-->
+    <!--        <div class="modal-title">Financial Model &amp; Forecast</div>-->
+
+            <!-- ============================================================
+    <!--    EXCEL FILE OPTIONS — Choose ONE:-->
+
+    <!--    OPTION A — Screenshot of the spreadsheet:-->
+    <!--      <img src="files/financial_model.png" style="width:100%;border-radius:8px;" />-->
+
+    <!--    OPTION B — OneDrive live embed:-->
+    <!--      1. Upload your Excel file to OneDrive-->
+    <!--      2. Click Share → Embed → Generate HTML-->
+    <!--      3. Copy the iframe and paste it below (remove the placeholder div)-->
+
+    <!--    OPTION C — Just the download link below-->
+    <!--  ============================================================ -->-->
+    <!--        <div class="modal-embed">-->
+    <!--            <div style="padding:2rem;">-->
+    <!--                📋 Spreadsheet preview<br>-->
+    <!--                <span style="font-size:11px;">Add a screenshot or OneDrive embed here</span>-->
+    <!--            </div>-->
+    <!--        </div>-->
+
+    <!--        <div class="modal-section">-->
+    <!--            <h4>Overview</h4>-->
+    <!--            <p>A 3-year revenue forecast model with scenario analysis (base, optimistic, pessimistic) built as part of a university capstone project.</p> <!-- EDIT -->-->
+    <!--        </div>-->
+
+    <!--        <div class="modal-section">-->
+    <!--            <h4>Problem</h4>-->
+    <!--            <p>The project required demonstrating how a business could model future revenue under different market conditions using only historical data.</p> <!-- EDIT -->-->
+    <!--        </div>-->
+
+    <!--        <div class="modal-section">-->
+    <!--            <h4>Approach</h4>-->
+    <!--            <p>Built a dynamic model in Excel using Pivot Tables, named ranges, and chart automation. Scenario inputs controlled all outputs from a single assumptions page.</p> <!-- EDIT -->-->
+    <!--        </div>-->
+
+    <!--        <div class="modal-section">-->
+    <!--            <h4>Outcome</h4>-->
+    <!--            <p>Produced a clean, easy-to-use financial model that could be updated by non-technical users just by changing the assumptions.</p> <!-- EDIT -->-->
+    <!--        </div>-->
+
+    <!--        <div class="modal-actions">-->
+                <!-- EDIT: Link to your .xlsx file -->
+    <!--            <a class="btn btn-primary" href="files/financial_model.xlsx" download>Download .xlsx file</a>-->
+    <!--        </div>-->
+
+    <!--    </div>-->
+    <!--</div><!-- end modal-3 -->-->
 
 
     <!-- ── MODAL 4: Python — Retail Analysis ── -->
-    <div id="modal-4" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-4')">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closeModal('modal-4')">✕</button>
+    <!--<div id="modal-4" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-4')">-->
+    <!--    <div class="modal-box">-->
+    <!--        <button class="modal-close" onclick="closeModal('modal-4')">✕</button>-->
 
-            <span class="modal-tag tag-py">Python</span>
-            <div class="modal-title">Retail Sales Analysis</div>
+    <!--        <span class="modal-tag tag-py">Python</span>-->
+    <!--        <div class="modal-title">Retail Sales Analysis</div>-->
 
             <!-- ============================================================
-        PYTHON / NOTEBOOK OPTIONS — Choose ONE:
+    <!--    PYTHON / NOTEBOOK OPTIONS — Choose ONE:-->
 
-        OPTION A — Screenshot of charts from your notebook:
-          <img src="files/retail_analysis.png" style="width:100%;border-radius:8px;" />
+    <!--    OPTION A — Screenshot of charts from your notebook:-->
+    <!--      <img src="files/retail_analysis.png" style="width:100%;border-radius:8px;" />-->
 
-        OPTION B — Link to Kaggle notebook or NBViewer (in the actions below)
-          Just update the href on the "View notebook" button below
+    <!--    OPTION B — Link to Kaggle notebook or NBViewer (in the actions below)-->
+    <!--      Just update the href on the "View notebook" button below-->
 
-        OPTION C — GitHub link (notebook will render automatically on GitHub)
-      ============================================================ -->
-            <div class="modal-embed">
-                <div style="padding:2rem;">
-                    🐍 Notebook preview<br>
-                    <span style="font-size:11px;">Add a chart screenshot or link to Kaggle / GitHub</span>
-                </div>
-            </div>
+    <!--    OPTION C — GitHub link (notebook will render automatically on GitHub)-->
+    <!--  ============================================================ -->-->
+    <!--        <div class="modal-embed">-->
+    <!--            <div style="padding:2rem;">-->
+    <!--                🐍 Notebook preview<br>-->
+    <!--                <span style="font-size:11px;">Add a chart screenshot or link to Kaggle / GitHub</span>-->
+    <!--            </div>-->
+    <!--        </div>-->
 
-            <div class="modal-section">
-                <h4>Overview</h4>
-                <p>Exploratory analysis of a retail sales dataset to uncover sales trends, top-performing products, and seasonal patterns.</p> <!-- EDIT -->
-            </div>
+    <!--        <div class="modal-section">-->
+    <!--            <h4>Overview</h4>-->
+    <!--            <p>Exploratory analysis of a retail sales dataset to uncover sales trends, top-performing products, and seasonal patterns.</p> <!-- EDIT -->-->
+    <!--        </div>-->
 
-            <div class="modal-section">
-                <h4>Problem</h4>
-                <p>Completed as part of a data analytics unit — the goal was to practise end-to-end data analysis: cleaning, transforming, visualising, and interpreting results.</p> <!-- EDIT -->
-            </div>
+    <!--        <div class="modal-section">-->
+    <!--            <h4>Problem</h4>-->
+    <!--            <p>Completed as part of a data analytics unit — the goal was to practise end-to-end data analysis: cleaning, transforming, visualising, and interpreting results.</p> <!-- EDIT -->-->
+    <!--        </div>-->
 
-            <div class="modal-section">
-                <h4>Approach</h4>
-                <p>Used Pandas to clean and aggregate the dataset, then Matplotlib and Seaborn to produce visualisations covering monthly revenue, category breakdowns, and top-10 products.</p> <!-- EDIT -->
-            </div>
+    <!--        <div class="modal-section">-->
+    <!--            <h4>Approach</h4>-->
+    <!--            <p>Used Pandas to clean and aggregate the dataset, then Matplotlib and Seaborn to produce visualisations covering monthly revenue, category breakdowns, and top-10 products.</p> <!-- EDIT -->-->
+    <!--        </div>-->
 
-            <div class="modal-section">
-                <h4>Outcome</h4>
-                <p>Produced a reproducible Jupyter notebook that clearly communicated findings with annotated charts and written commentary.</p> <!-- EDIT -->
-            </div>
+    <!--        <div class="modal-section">-->
+    <!--            <h4>Outcome</h4>-->
+    <!--            <p>Produced a reproducible Jupyter notebook that clearly communicated findings with annotated charts and written commentary.</p> <!-- EDIT -->-->
+    <!--        </div>-->
 
-            <div class="modal-actions">
+    <!--        <div class="modal-actions">-->
                 <!-- EDIT: Update these links to your actual files or hosted notebook -->
-                <a class="btn btn-primary" href="files/retail_analysis.ipynb" download>Download notebook</a>
+    <!--            <a class="btn btn-primary" href="files/retail_analysis.ipynb" download>Download notebook</a>-->
                 <!-- EDIT: Replace # with a link to your Kaggle or GitHub notebook -->
-                <a class="btn" href="#" target="_blank">View on GitHub</a>
-            </div>
+    <!--            <a class="btn" href="#" target="_blank">View on GitHub</a>-->
+    <!--        </div>-->
 
-        </div>
-    </div><!-- end modal-4 -->
+    <!--    </div>-->
+    <!--</div><!-- end modal-4 -->-->
 
 
     <!-- ============================================================
